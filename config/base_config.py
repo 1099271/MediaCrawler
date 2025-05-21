@@ -7,13 +7,13 @@
 #
 # 详细许可条款请参阅项目根目录下的LICENSE文件。
 # 使用本代码即表示您同意遵守上述原则和LICENSE中的所有条款。
-
+import os
 
 # 基础配置
 PLATFORM = "xhs"
-KEYWORDS = "编程副业,编程兼职"  # 关键词搜索配置，以英文逗号分隔
-LOGIN_TYPE = "qrcode"  # qrcode or phone or cookie
-COOKIES = ""
+KEYWORDS = "透卡"  # 关键词搜索配置，以英文逗号分隔
+LOGIN_TYPE = "cookie"  # qrcode or phone or cookie
+COOKIES = os.getenv("XHS_COOKIE")
 # 具体值参见media_platform.xxx.field下的枚举值，暂时只支持小红书
 SORT_TYPE = "popularity_descending"
 # 具体值参见media_platform.xxx.field下的枚举值，暂时只支持抖音
@@ -22,7 +22,7 @@ CRAWLER_TYPE = (
     "search"  # 爬取类型，search(关键词搜索) | detail(帖子详情)| creator(创作者主页数据)
 )
 # 自定义User Agent（暂时仅对XHS有效）
-UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0'
+UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0'
 
 # 是否开启 IP 代理
 ENABLE_IP_PROXY = False
@@ -31,7 +31,7 @@ ENABLE_IP_PROXY = False
 CRAWLER_MAX_SLEEP_SEC = 2
 
 # 代理IP池数量
-IP_PROXY_POOL_COUNT = 2
+IP_PROXY_POOL_COUNT = 0
 
 # 代理IP提供商名称
 IP_PROXY_PROVIDER_NAME = "kuaidaili"
@@ -46,7 +46,7 @@ HEADLESS = False
 SAVE_LOGIN_STATE = True
 
 # 数据保存类型选项配置,支持三种类型：csv、db、json, 最好保存到DB，有排重的功能。
-SAVE_DATA_OPTION = "json"  # csv or db or json
+SAVE_DATA_OPTION = "db"  # csv or db or json
 
 # 用户浏览器缓存的浏览器文件配置
 USER_DATA_DIR = "%s_user_data_dir"  # %s will be replaced by platform name
@@ -82,7 +82,7 @@ ENABLE_GET_SUB_COMMENTS = False
 
 # 指定小红书需要爬虫的笔记URL列表, 目前要携带xsec_token和xsec_source参数
 XHS_SPECIFIED_NOTE_URL_LIST = [
-    "https://www.xiaohongshu.com/explore/66fad51c000000001b0224b8?xsec_token=AB3rO-QopW5sgrJ41GwN01WCXh6yWPxjSoFI9D5JIMgKw=&xsec_source=pc_search"
+    # "https://www.xiaohongshu.com/explore/66fad51c000000001b0224b8?xsec_token=AB3rO-QopW5sgrJ41GwN01WCXh6yWPxjSoFI9D5JIMgKw=&xsec_source=pc_search"
     # ........................
 ]
 
